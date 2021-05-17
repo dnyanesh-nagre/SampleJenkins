@@ -1,0 +1,2 @@
+EMAIL_ID,PWD,BILLING-USERNAME,BILLING-PWD,BZA-LOGIN-LINK,BILLING-LOGIN-LINK,BZA-API,BILLING-API,API_AUTH
+test@wimbl.com,Sample@123,aed34b50-a3cd-470c-85d4-1f90d5a07908,9fd3befd-244c-4b0f-82e2-481fdb7c6586,https://bza-2999-sesha-sesha.blazemeter.net/app/sign-in,https://billing-2999-sesha-sesha.blazemeter.net/login,https://bza-2999-sesha-sesha.blazemeter.net/api/v4/accounts/53/subscriptions,https://billing-2999-sesha-sesha.blazemeter.net/api/accounts/a-53/subscriptions,Basic YWVkMzRiNTAtYTNjZC00NzBjLTg1ZDQtMWY5MGQ1YTA3OTA4OjlmZDNiZWZkLTI0NGMtNGIwZi04MmUyLTQ4MWZkYjdjNjU4Ng==
