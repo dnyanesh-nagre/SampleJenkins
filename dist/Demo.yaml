@@ -1,0 +1,15 @@
+
+
+modules:
+  nose:
+    ignore-unknown-actions: true
+execution:
+  - executor: jmeter
+    scenario: 
+      script: BlazeDemo.jmx
+    blazegrid: true
+    iterations: 1
+    capabilities: 
+      browserName: chrome
+          
+
