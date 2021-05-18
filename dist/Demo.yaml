@@ -5,11 +5,13 @@ modules:
     ignore-unknown-actions: true
 execution:
   - executor: jmeter
-    scenario: 
-      script: BlazeDemo.jmx
+    scenario: simple_script
     blazegrid: true
     iterations: 1
     capabilities: 
       browserName: chrome
-          
+
+scenarios:
+  simple_script:
+    script: BlazeDemo.jmx
 
