@@ -1,0 +1,77 @@
+---
+execution:
+- concurrency: 5
+  executor: jmeter
+  hold-for: 02m
+  locations:
+    eu-west-1: 2
+  locations-weighted: false
+  ramp-up: 1m
+  scenario: Test
+local-bzt-version: 1.15.2
+modules:
+  blazemeter:
+    browser-open: none
+    project: Support Testing
+    report-name: Test
+    test: Test
+  cloud:
+    default-location: us-central1-a
+    version: '4.0'
+  consolidator:
+    percentiles:
+    - 0.0
+    - 50.0
+    - 90.0
+    - 95.0
+    - 99.0
+    - 99.9
+    - 100.0
+  jmeter:
+    plugins:
+    - jpgc-casutg
+    - jpgc-dummy
+    - jpgc-ffw
+    - jpgc-fifo
+    - jpgc-functions
+    - jpgc-json
+    - jpgc-perfmon
+    - jpgc-prmctl
+    - jpgc-tst
+    properties:
+      jmeter.save.saveservice.autoflush: 'true'
+      jmeter.save.saveservice.connect_time: 'true'
+      jmeterengine.force.system.exit: 'true'
+      summariser.name: ''
+    protocol-handlers:
+      http: bzt.jmx.http.HTTPProtocolHandler
+reporting:
+- module: final-stats
+- module: console
+- criteria:
+  - avg-rt>70ms, continue as failed
+  - failures>0.01%, continue as failed
+  - p95>150ms, continue as failed
+  - p99>500ms, continue as failed
+  module: passfail
+scenarios:
+  Test:
+    script: Dummy3.jmx
+services:
+- local:
+  - metrics:
+    - cpu
+    - mem
+    - bytes-sent
+    - bytes-recv
+    - disk-read
+    - disk-write
+    - disk-space
+    - engine-loop
+    - conn-all
+  module: monitoring
+settings:
+  default-executor: jmeter
+  env:
+    OBJC_DISABLE_INITIALIZE_FORK_SAFETY: 'YES'
+    TAURUS_ARTIFACTS_DIR: /Users/ashishk/Desktop/untitled folder/2021-03-18_21-12-26.939843
